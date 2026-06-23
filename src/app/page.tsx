@@ -1,4 +1,16 @@
 export default function Home() {
+  const fetchChatMessage = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/chat");
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching chat message:", error);
+    }
+  };
+
+  fetchChatMessage(); // Call the function to fetch the chat message
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-between p-24">
       <header className="w-full">
