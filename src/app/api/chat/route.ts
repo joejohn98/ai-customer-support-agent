@@ -4,6 +4,7 @@ import { google } from "@ai-sdk/google";
 import { stepCountIs, streamText } from "ai";
 import z from "zod";
 import mockData from "@/mockData.json";
+import { saveAgentLog } from "@/utils/logger";
 
 function removeMessageNewlines(message: string) {
   return message
@@ -64,16 +65,24 @@ export async function POST(request: NextRequest) {
               `Gemini is looking up order details for Order ID: ${orderId}`,
             );
 
+            await saveAgentLog("lookupOrder", "started", { orderId });
+
             for (const customer of mockData) {
               const order = customer.orders.find(
                 (order) => order.orderId === orderId,
               );
               if (order) {
                 console.log(`Found order details for Order ID: ${orderId}`);
+                await saveAgentLog("lookupOrder", "completed", {
+                  orderId,
+                  customerId: customer.id,
+                  customerEmail: customer.email,
+                });
                 return { success: true, data: { customer, order } };
               }
             }
             console.log(`No order details found for Order ID: ${orderId}`);
+            await saveAgentLog("lookupOrder", "failed", { orderId });
             return {
               success: false,
               error: "Order not found. Ask user to verify ID",
@@ -103,6 +112,10 @@ export async function POST(request: NextRequest) {
             console.log(
               `Gemini is recording decision: ${decision} with reasoning: ${reasoning}`,
             );
+            await saveAgentLog("recordDecision", "completed", {
+              decision,
+              reasoning,
+            });
             return {
               success: true,
               message:
