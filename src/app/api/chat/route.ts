@@ -45,7 +45,10 @@ export async function POST(request: NextRequest) {
     8. Refund is denied if customer has more than 3 refunds in the last 30 days.
     9. Refund is approved only after all applicable policy checks pass.
     
-    CRITICAL INSTRUCTION: You must ALWAYS use the lookupOrder tool to fetch the customer's data before answering. Do not guess or assume order details. If the user does not provide an Order ID, politely ask them for it.`,
+    CRITICAL INSTRUCTIONS: 
+    - Step 1: ALWAYS use the lookupOrder tool to fetch the customer's data first.
+    - Step 2: After reviewing the data against the rules, you MUST use the recordDecision tool to log your step-by-step reasoning.
+    - Step 3: Only after using recordDecision should you reply to the user.`,
       messages,
 
       tools: {
@@ -77,8 +80,40 @@ export async function POST(request: NextRequest) {
             };
           },
         },
+        recordDecision: {
+          description:
+            "Use this tool to offically log your decision and your reasoning before replying to the customer.",
+          inputSchema: z.object({
+            decision: z
+              .enum(["Approved", "Denied"])
+              .describe("The final decision regarding the refund request."),
+            reasoning: z
+              .string()
+              .describe(
+                "A detailed,step-by-step explanation of which rules passed or failed based on the data.",
+              ),
+          }),
+          execute: async ({
+            decision,
+            reasoning,
+          }: {
+            decision: string;
+            reasoning: string;
+          }) => {
+            console.log(
+              `Gemini is recording decision: ${decision} with reasoning: ${reasoning}`,
+            );
+            return {
+              success: true,
+              message:
+                "Decision recorded successfully. You can now reply to the customer.",
+            };
+          },
+        },
       },
       stopWhen: stepCountIs(5),
+
+      maxRetries: 3,
     });
 
     let text = "";
