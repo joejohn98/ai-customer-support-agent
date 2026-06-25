@@ -3,8 +3,11 @@ import type { NextRequest } from "next/server";
 import { google } from "@ai-sdk/google";
 import { stepCountIs, streamText } from "ai";
 import z from "zod";
-import mockData from "@/mockData.json";
+
+
+import mockData from "@/data/mockData.json";
 import { saveAgentLog } from "@/utils/logger";
+
 
 function removeMessageNewlines(message: string) {
   return message
@@ -13,7 +16,7 @@ function removeMessageNewlines(message: string) {
     .trim();
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   return NextResponse.json({ message: "Hello from the chat API!" });
 }
 
@@ -65,7 +68,9 @@ export async function POST(request: NextRequest) {
               `Gemini is looking up order details for Order ID: ${orderId}`,
             );
 
-            await saveAgentLog("lookupOrder", "started", { orderId });
+            await saveAgentLog("Looking up order details", "started", {
+              orderId,
+            });
 
             for (const customer of mockData) {
               const order = customer.orders.find(
@@ -73,7 +78,7 @@ export async function POST(request: NextRequest) {
               );
               if (order) {
                 console.log(`Found order details for Order ID: ${orderId}`);
-                await saveAgentLog("lookupOrder", "completed", {
+                await saveAgentLog("Looking up order details", "found", {
                   orderId,
                   customerId: customer.id,
                   customerEmail: customer.email,
@@ -82,7 +87,9 @@ export async function POST(request: NextRequest) {
               }
             }
             console.log(`No order details found for Order ID: ${orderId}`);
-            await saveAgentLog("lookupOrder", "failed", { orderId });
+            await saveAgentLog("Looking up order details", "failed", {
+              orderId,
+            });
             return {
               success: false,
               error: "Order not found. Ask user to verify ID",
@@ -112,7 +119,7 @@ export async function POST(request: NextRequest) {
             console.log(
               `Gemini is recording decision: ${decision} with reasoning: ${reasoning}`,
             );
-            await saveAgentLog("recordDecision", "completed", {
+            await saveAgentLog("Recording decision", "completed", {
               decision,
               reasoning,
             });
