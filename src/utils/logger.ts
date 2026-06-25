@@ -24,17 +24,13 @@ export async function saveAgentLog(
     details,
   };
   try {
-    let logs = [];
-    try {
-      const existingData = await fs.readFile(filePath, "utf-8");
-      logs = existingData ? JSON.parse(existingData) : [];
-    } catch (e) {
-      // File likely doesn't exist yet, start with empty array
-    }
+    const fileData = await fs.readFile(filePath, "utf-8");
+    const logs = JSON.parse(fileData);
 
     logs.unshift(newLog);
-    await fs.writeFile(filePath, JSON.stringify(logs, null, 2), "utf8");
+    await fs.writeFile(filePath, JSON.stringify(logs, null, 2));
   } catch (error) {
-    console.error("Error writing agent log:", error);
+    await fs.writeFile(filePath, JSON.stringify([newLog], null, 2));
+    console.error("Error saving agent log:", error);
   }
 }
