@@ -1,0 +1,428 @@
+[
+  {
+    "id": "1782318456232",
+    "date": "2026-06-24T16:27:36.232Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Denied",
+      "reasoning": "The refund request for order ORD1013 was evaluated against the following rules: \n1. Rule 7 states a refund is denied if the order status is not 'Delivered'. The order status for ORD1013 is 'Cancelled', therefore the refund cannot be processed."
+    }
+  },
+  {
+    "id": "1782318455281",
+    "date": "2026-06-24T16:27:35.281Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1013",
+      "customerId": "CUST013",
+      "customerEmail": "neha.bose@example.com"
+    }
+  },
+  {
+    "id": "1782318455272",
+    "date": "2026-06-24T16:27:35.272Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1013"
+    }
+  },
+  {
+    "id": "1782318358056",
+    "date": "2026-06-24T16:25:58.056Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Approved",
+      "reasoning": "1. Order status is 'Delivered' (Rule 7 passed). \n2. The product is a Digital product. Rule 4 states digital products are non-refundable if accessed. The customer has not accessed the digital product (digitalAccessed: false), therefore it is eligible for a refund. \n3. The customer has no prior refunds in the last 30 days (Rule 8 passed). \n4. No other disqualifying conditions (damage, usage) apply. \nConclusion: The refund request is approved."
+    }
+  },
+  {
+    "id": "1782318354206",
+    "date": "2026-06-24T16:25:54.206Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1007",
+      "customerId": "CUST007",
+      "customerEmail": "ananya.reddy@example.com"
+    }
+  },
+  {
+    "id": "1782318354197",
+    "date": "2026-06-24T16:25:54.197Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1007"
+    }
+  },
+  {
+    "id": "1782318184846",
+    "date": "2026-06-24T16:23:04.846Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Denied",
+      "reasoning": "The refund request for the Smart Watch (Order ORD1009) was denied. Rule 5 states that a refund is denied if the product is damaged by the customer. According to the order details, the Smart Watch is reported as damaged."
+    }
+  },
+  {
+    "id": "1782318180140",
+    "date": "2026-06-24T16:23:00.140Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1009",
+      "customerId": "CUST009",
+      "customerEmail": "meena.pillai@example.com"
+    }
+  },
+  {
+    "id": "1782318180125",
+    "date": "2026-06-24T16:23:00.125Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1009"
+    }
+  },
+  {
+    "id": "1782318153135",
+    "date": "2026-06-24T16:22:33.135Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Denied",
+      "reasoning": "The customer requested a refund for an electronic item (Keyboard) delivered on 2026-06-13. According to rule #1, electronics are refundable within 7 days of delivery. As of today, 2026-06-24, 11 days have passed, which exceeds the 7-day return policy. Therefore, the request is denied."
+    }
+  },
+  {
+    "id": "1782318152182",
+    "date": "2026-06-24T16:22:32.182Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1002",
+      "customerId": "CUST002",
+      "customerEmail": "priya.sharma@example.com"
+    }
+  },
+  {
+    "id": "1782318152162",
+    "date": "2026-06-24T16:22:32.162Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1002"
+    }
+  },
+  {
+    "id": "1782318079717",
+    "date": "2026-06-24T16:21:19.717Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Denied",
+      "reasoning": "The requested item (Gourmet Chocolates) belongs to the Food category. According to policy rule #3, food items are non-refundable. Therefore, the request must be denied regardless of delivery status or customer history."
+    }
+  },
+  {
+    "id": "1782318078723",
+    "date": "2026-06-24T16:21:18.723Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1006",
+      "customerId": "CUST006",
+      "customerEmail": "karan.gupta@example.com"
+    }
+  },
+  {
+    "id": "1782318078558",
+    "date": "2026-06-24T16:21:18.558Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1006"
+    }
+  },
+  {
+    "id": "1782318000793",
+    "date": "2026-06-24T16:20:00.793Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Denied",
+      "reasoning": "1. Order Status: Delivered (Rule 7 passed). 2. Category: Electronics (Rule 1: Refundable within 7 days. Today is 2026-06-24, delivered 2026-06-21, so 3 days passed - Rule 1 passed). 3. Damage: Product is reported as damaged by the customer (Rule 5: Refund is denied if product is damaged by customer - Rule 5 failed). Therefore, the refund request is denied."
+    }
+  },
+  {
+    "id": "1782317999732",
+    "date": "2026-06-24T16:19:59.732Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1009",
+      "customerId": "CUST009",
+      "customerEmail": "meena.pillai@example.com"
+    }
+  },
+  {
+    "id": "1782317999716",
+    "date": "2026-06-24T16:19:59.716Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1009"
+    }
+  },
+  {
+    "id": "1782317856338",
+    "date": "2026-06-24T16:17:36.338Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Approved",
+      "reasoning": "1. Order status is 'Delivered' (Rule 7 passed). \n2. The product is a digital item (Software License). \n3. The digital product has not been accessed (Rule 4 passed). \n4. The customer has no prior refunds in the last 30 days (Rule 8 passed). \nAll applicable conditions for a digital item have been met."
+    }
+  },
+  {
+    "id": "1782317855009",
+    "date": "2026-06-24T16:17:35.009Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1007",
+      "customerId": "CUST007",
+      "customerEmail": "ananya.reddy@example.com"
+    }
+  },
+  {
+    "id": "1782317854992",
+    "date": "2026-06-24T16:17:34.992Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1007"
+    }
+  },
+  {
+    "id": "1782317301583",
+    "date": "2026-06-24T16:08:21.583Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Approved",
+      "reasoning": "1. Category is Electronics, delivered on 2026-06-17. Today is 2026-06-24. This is exactly 7 days, which is within the 7-day refund window. \n2. Product status is Delivered (Rule 7 passed).\n3. Product is not damaged (Rule 5 passed).\n4. Product is not used (Rule 6 passed).\n5. Customer has 0 prior refunds in the last 30 days (Rule 8 passed). \nAll applicable policy checks passed."
+    }
+  },
+  {
+    "id": "1782317299655",
+    "date": "2026-06-24T16:08:19.655Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1012",
+      "customerId": "CUST012",
+      "customerEmail": "rahul.desai@example.com"
+    }
+  },
+  {
+    "id": "1782317299633",
+    "date": "2026-06-24T16:08:19.633Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1012"
+    }
+  },
+  {
+    "id": "1782317249373",
+    "date": "2026-06-24T16:07:29.373Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Approved",
+      "reasoning": "1. Order ORD1015 is an 'Electric Kettle' (Electronics), delivered on 2026-06-23. Today is 2026-06-24 (within 7 days).\n2. Category is Electronics, which is refundable within 7 days.\n3. Item is not damaged (damaged=false) and not used (used=false).\n4. Order status is 'Delivered'.\n5. Customer has 0 previous refunds in the last 30 days.\nAll policy checks passed."
+    }
+  },
+  {
+    "id": "1782317248126",
+    "date": "2026-06-24T16:07:28.126Z",
+    "action": "Looking up order details",
+    "status": "found",
+    "details": {
+      "orderId": "ORD1015",
+      "customerId": "CUST014",
+      "customerEmail": "deepak.sharma@example.com"
+    }
+  },
+  {
+    "id": "1782317248096",
+    "date": "2026-06-24T16:07:28.096Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1015"
+    }
+  },
+  {
+    "id": "1782317027943",
+    "date": "2026-06-24T16:03:47.943Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Approved",
+      "reasoning": "1. Order status is Delivered. 2. Item (Air Purifier) is categorized as Electronics (Home Appliances). 3. Delivery date was 2026-06-19, current date is 2026-06-24 (within 7 days). 4. Item is not damaged. 5. Customer has 0 prior refunds in the last 30 days. All conditions met."
+    }
+  },
+  {
+    "id": "1782317026598",
+    "date": "2026-06-24T16:03:46.599Z",
+    "action": "Looking up order details",
+    "status": "completed",
+    "details": {
+      "orderId": "ORD1014",
+      "customerId": "CUST014",
+      "customerEmail": "deepak.sharma@example.com"
+    }
+  },
+  {
+    "id": "1782317026589",
+    "date": "2026-06-24T16:03:46.589Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1014"
+    }
+  },
+  {
+    "id": "1782316253118",
+    "date": "2026-06-24T15:50:53.118Z",
+    "action": "Recording decision",
+    "status": "completed",
+    "details": {
+      "decision": "Denied",
+      "reasoning": "The order ORD1004 (Clothing) was delivered on 2026-06-03. Today is 2026-06-24. The refund request window for clothing is 15 days. Since 21 days have passed since delivery, the item is outside the eligible return period."
+    }
+  },
+  {
+    "id": "1782316251884",
+    "date": "2026-06-24T15:50:51.884Z",
+    "action": "Looking up order details",
+    "status": "completed",
+    "details": {
+      "orderId": "ORD1004",
+      "customerId": "CUST004",
+      "customerEmail": "sneha.nair@example.com"
+    }
+  },
+  {
+    "id": "1782316251861",
+    "date": "2026-06-24T15:50:51.861Z",
+    "action": "Looking up order details",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1004"
+    }
+  },
+  {
+    "id": "1782315872226",
+    "date": "2026-06-24T15:44:32.226Z",
+    "action": "lookupOrder",
+    "status": "failed",
+    "details": {
+      "orderId": "ORD1015"
+    }
+  },
+  {
+    "id": "1782315872200",
+    "date": "2026-06-24T15:44:32.200Z",
+    "action": "lookupOrder",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1015"
+    }
+  },
+  {
+    "id": "1782315801922",
+    "date": "2026-06-24T15:43:21.922Z",
+    "action": "lookupOrder",
+    "status": "failed",
+    "details": {
+      "orderId": "ORD10015"
+    }
+  },
+  {
+    "id": "1782315801900",
+    "date": "2026-06-24T15:43:21.900Z",
+    "action": "lookupOrder",
+    "status": "started",
+    "details": {
+      "orderId": "ORD10015"
+    }
+  },
+  {
+    "id": "1782315756226",
+    "date": "2026-06-24T15:42:36.226Z",
+    "action": "recordDecision",
+    "status": "completed",
+    "details": {
+      "decision": "Denied",
+      "reasoning": "The item requested for refund is a digital product (E-book) which has already been accessed. According to rule #4, digital products are non-refundable once accessed."
+    }
+  },
+  {
+    "id": "1782315755306",
+    "date": "2026-06-24T15:42:35.306Z",
+    "action": "lookupOrder",
+    "status": "completed",
+    "details": {
+      "orderId": "ORD1008",
+      "customerId": "CUST008",
+      "customerEmail": "vikram.joshi@example.com"
+    }
+  },
+  {
+    "id": "1782315755280",
+    "date": "2026-06-24T15:42:35.280Z",
+    "action": "lookupOrder",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1008"
+    }
+  },
+  {
+    "id": "1782315251270",
+    "date": "2026-06-24T15:34:11.270Z",
+    "action": "recordDecision",
+    "status": "completed",
+    "details": {
+      "decision": "Approved",
+      "reasoning": "1. Order status is 'Delivered' (Rule 7 passed). 2. Category is 'Clothing' and delivery date was 2026-06-13. Today is 2026-06-24, which is 11 days after delivery. This is within the 15-day refund window (Rule 2 passed). 3. The item is marked as 'unused' (Rule 2 & 6 passed). 4. The item is not damaged (Rule 5 passed). 5. Customer has 0 prior refunds in the last 30 days (Rule 8 passed). All conditions met."
+    }
+  },
+  {
+    "id": "1782315250126",
+    "date": "2026-06-24T15:34:10.127Z",
+    "action": "lookupOrder",
+    "status": "completed",
+    "details": {
+      "orderId": "ORD1003",
+      "customerId": "CUST003",
+      "customerEmail": "arjun.kapoor@example.com"
+    }
+  },
+  {
+    "id": "1782315250112",
+    "date": "2026-06-24T15:34:10.112Z",
+    "action": "lookupOrder",
+    "status": "started",
+    "details": {
+      "orderId": "ORD1003"
+    }
+  }
+]

@@ -1,0 +1,320 @@
+[
+  {
+    "id": "CUST001",
+    "name": "Rohan Mehta",
+    "email": "rohan.mehta@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1001",
+        "productName": "Wireless Mouse",
+        "category": "Electronics",
+        "price": 1500,
+        "orderDate": "2026-06-19",
+        "deliveryDate": "2026-06-21",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST002",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1002",
+        "productName": "Keyboard",
+        "category": "Electronics",
+        "price": 2000,
+        "orderDate": "2026-06-10",
+        "deliveryDate": "2026-06-13",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST003",
+    "name": "Arjun Kapoor",
+    "email": "arjun.kapoor@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1003",
+        "productName": "Winter Jacket",
+        "category": "Clothing",
+        "price": 4000,
+        "orderDate": "2026-06-10",
+        "deliveryDate": "2026-06-13",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST004",
+    "name": "Sneha Nair",
+    "email": "sneha.nair@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1004",
+        "productName": "Summer T-Shirt",
+        "category": "Clothing",
+        "price": 500,
+        "orderDate": "2026-05-25",
+        "deliveryDate": "2026-06-03",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST005",
+    "name": "Divya Iyer",
+    "email": "divya.iyer@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1005",
+        "productName": "Running Pants",
+        "category": "Clothing",
+        "price": 1000,
+        "orderDate": "2026-06-15",
+        "deliveryDate": "2026-06-18",
+        "status": "Delivered",
+        "used": true,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST006",
+    "name": "Karan Gupta",
+    "email": "karan.gupta@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1006",
+        "productName": "Gourmet Chocolates",
+        "category": "Food",
+        "price": 800,
+        "orderDate": "2026-06-19",
+        "deliveryDate": "2026-06-21",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST007",
+    "name": "Ananya Reddy",
+    "email": "ananya.reddy@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1007",
+        "productName": "Software License",
+        "category": "Digital",
+        "price": 5000,
+        "orderDate": "2026-06-18",
+        "deliveryDate": "2026-06-18",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST008",
+    "name": "Vikram Joshi",
+    "email": "vikram.joshi@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1008",
+        "productName": "E-book",
+        "category": "Digital",
+        "price": 300,
+        "orderDate": "2026-06-18",
+        "deliveryDate": "2026-06-18",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": true
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST009",
+    "name": "Meena Pillai",
+    "email": "meena.pillai@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1009",
+        "productName": "Smart Watch",
+        "category": "Electronics",
+        "price": 4000,
+        "orderDate": "2026-06-19",
+        "deliveryDate": "2026-06-21",
+        "status": "Delivered",
+        "used": false,
+        "damaged": true,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST010",
+    "name": "Aditya Verma",
+    "email": "aditya.verma@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1010",
+        "productName": "Tablet",
+        "category": "Electronics",
+        "price": 12000,
+        "orderDate": "2026-06-21",
+        "deliveryDate": null,
+        "status": "Shipped",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST011",
+    "name": "Sunita Rao",
+    "email": "sunita.rao@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1011",
+        "productName": "Headphones",
+        "category": "Electronics",
+        "price": 2500,
+        "orderDate": "2026-06-19",
+        "deliveryDate": "2026-06-21",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": [
+      "2026-06-01",
+      "2026-06-05",
+      "2026-06-10",
+      "2026-06-20"
+    ]
+  }
+  ,
+  {
+    "id": "CUST012",
+    "name": "Rahul Desai",
+    "email": "rahul.desai@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1012",
+        "productName": "Bluetooth Earbuds",
+        "category": "Electronics",
+        "price": 3500,
+        "orderDate": "2026-06-17",
+        "deliveryDate": "2026-06-17",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST013",
+    "name": "Neha Bose",
+    "email": "neha.bose@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1013",
+        "productName": "Gaming Controller",
+        "category": "Electronics",
+        "price": 3000,
+        "orderDate": "2026-06-20",
+        "deliveryDate": "2026-06-23",
+        "status": "Cancelled",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST014",
+    "name": "Deepak Sharma",
+    "email": "deepak.sharma@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1014",
+        "productName": "Air Purifier",
+        "category": "Home Appliances",
+        "price": 9500,
+        "orderDate": "2026-06-16",
+        "deliveryDate": "2026-06-19",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      },
+      {
+        "orderId": "ORD1015",
+        "productName": "Electric Kettle",
+        "category": "Home Appliances",
+        "price": 1200,
+        "orderDate": "2026-06-20",
+        "deliveryDate": "2026-06-23",
+        "status": "Delivered",
+        "used": false,
+        "damaged": false,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  },
+  {
+    "id": "CUST015",
+    "name": "Lakshmi Rajan",
+    "email": "lakshmi.rajan@example.com",
+    "orders": [
+      {
+        "orderId": "ORD1016",
+        "productName": "Casual Sneakers",
+        "category": "Clothing",
+        "price": 2200,
+        "orderDate": "2026-06-17",
+        "deliveryDate": "2026-06-20",
+        "status": "Delivered",
+        "used": false,
+        "damaged": true,
+        "digitalAccessed": false
+      }
+    ],
+    "refundHistory": []
+  }
+]

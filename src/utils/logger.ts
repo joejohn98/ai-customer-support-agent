@@ -6,7 +6,7 @@ export async function saveAgentLog(
   status: string,
   details: Record<string, string>,
 ) {
-  const filePath = path.join(process.cwd(), "src/agent-logs.json");
+  const filePath = path.join(process.cwd(), "src/data/agent-logs.json");
 
   const newLog = {
     id: Date.now().toString(),
@@ -26,4 +26,3 @@ export async function saveAgentLog(
     console.error("Error writing agent log:", error);
   }
 }
-``;
