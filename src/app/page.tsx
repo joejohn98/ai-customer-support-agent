@@ -3,6 +3,12 @@
 import { useState } from "react";
 import { useChat } from "@ai-sdk/react";
 
+interface MessagePart {
+  type: string;
+  text?: string;
+  state?: string;
+}
+
 export default function Home() {
   const [input, setInput] = useState("");
 
@@ -46,6 +52,24 @@ export default function Home() {
                 if (part.type === "text") {
                   return <span key={i}>{part.text}</span>;
                 }
+                if (part.type === "tool-lookupOrder")
+                  return (
+                    <p key={i} className="text-xs text-gray-400 italic">
+                      🔍 Looking up order...
+                    </p>
+                  );
+                if (part.type === "tool-recordDecision") {
+                  const isDone =
+                    (part as MessagePart).state === "output-available";
+                  return (
+                    <p key={i} className="text-xs text-gray-400 italic">
+                      {isDone
+                        ? "⚖️ Decision made ✓"
+                        : "⚖️ Evaluating your case..."}
+                    </p>
+                  );
+                }
+
                 return null;
               })}
             </div>
@@ -77,7 +101,6 @@ export default function Home() {
         </form>
       </main>
       <footer className="w-full text-center text-sm text-gray-500 mt-8">
-        <p className="mb-2">Chat Status: {status}</p>
         <a href="/admin" className="hover:underline">
           Admin View
         </a>
