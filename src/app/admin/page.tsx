@@ -22,7 +22,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     Promise.resolve().then(() => fetchLogs());
-    const interval = setInterval(fetchLogs, 3000);
+    const interval = setInterval(fetchLogs, 5000);
     return () => clearInterval(interval);
   }, []);
 

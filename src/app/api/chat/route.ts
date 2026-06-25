@@ -1,20 +1,11 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { google } from "@ai-sdk/google";
-import { stepCountIs, streamText } from "ai";
+import { convertToModelMessages, stepCountIs, streamText } from "ai";
 import z from "zod";
-
 
 import mockData from "@/data/mockData.json";
 import { saveAgentLog } from "@/utils/logger";
-
-
-function removeMessageNewlines(message: string) {
-  return message
-    .replace(/(?:\\n|\r?\n)+/g, " ")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-}
 
 export async function GET() {
   return NextResponse.json({ message: "Hello from the chat API!" });
@@ -24,7 +15,7 @@ export async function POST(request: NextRequest) {
   try {
     const { messages } = await request.json();
 
-    if (!messages) {
+    if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
         {
           error:
@@ -53,7 +44,7 @@ export async function POST(request: NextRequest) {
     - Step 1: ALWAYS use the lookupOrder tool to fetch the customer's data first.
     - Step 2: After reviewing the data against the rules, you MUST use the recordDecision tool to log your step-by-step reasoning.
     - Step 3: Only after using recordDecision should you reply to the user.`,
-      messages,
+      messages: await convertToModelMessages(messages),
 
       tools: {
         lookupOrder: {
@@ -136,18 +127,14 @@ export async function POST(request: NextRequest) {
       maxRetries: 3,
     });
 
-    let text = "";
-
-    for await (const textPart of result.textStream) {
-      text += textPart;
-    }
-    const data = removeMessageNewlines(text);
-    return NextResponse.json({ message: data });
+    return result.toUIMessageStreamResponse();
   } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : error;
+
     return NextResponse.json(
       {
         error: "Something went wrong ! Internal Server Error",
-        details: error instanceof Error ? error.message : String(error),
+        details: errorMessage,
       },
       { status: 500 },
     );
