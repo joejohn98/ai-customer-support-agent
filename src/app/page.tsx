@@ -1,15 +1,15 @@
-export default function Home() {
-  const fetchChatMessage = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/api/chat");
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error("Error fetching chat message:", error);
-    }
-  };
+"use client";
 
-  fetchChatMessage(); // Call the function to fetch the chat message
+import { ChangeEvent, useState } from "react";
+
+export default function Home() {
+  const [input, setInput] = useState("");
+
+  const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("User input:", input);
+    setInput("");
+  };
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -25,15 +25,17 @@ export default function Home() {
           </p>
         </div>
         {/* Input form */}
-        <form className="flex gap-2">
+        <form className="flex gap-2 mt-4" onSubmit={handleSubmit}>
           <input
             type="text"
             className="flex-1 border rounded-lg p-2"
             placeholder="Type your message..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white rounded-lg px-4 py-2"
+            className="bg-blue-500 text-white rounded-lg px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Send
           </button>
