@@ -45,6 +45,9 @@ export async function POST(request: NextRequest) {
     - Step 2: After reviewing the data against the rules, you MUST use the recordDecision tool to log your step-by-step reasoning.
     - Step 3: Only after using recordDecision should you reply to the user.`,
       messages: await convertToModelMessages(messages),
+      onError({ error }) {
+        console.error(error); 
+      },
 
       tools: {
         lookupOrder: {
@@ -55,10 +58,6 @@ export async function POST(request: NextRequest) {
               .describe("The order ID provided by the customer."),
           }),
           execute: async ({ orderId }: { orderId: string }) => {
-            console.log(
-              `Gemini is looking up order details for Order ID: ${orderId}`,
-            );
-
             await saveAgentLog("Looking up order details", "started", {
               orderId,
             });
@@ -68,7 +67,6 @@ export async function POST(request: NextRequest) {
                 (order) => order.orderId === orderId,
               );
               if (order) {
-                console.log(`Found order details for Order ID: ${orderId}`);
                 await saveAgentLog("Looking up order details", "found", {
                   orderId,
                   customerId: customer.id,
@@ -77,7 +75,6 @@ export async function POST(request: NextRequest) {
                 return { success: true, data: { customer, order } };
               }
             }
-            console.log(`No order details found for Order ID: ${orderId}`);
             await saveAgentLog("Looking up order details", "failed", {
               orderId,
             });
@@ -107,9 +104,6 @@ export async function POST(request: NextRequest) {
             decision: string;
             reasoning: string;
           }) => {
-            console.log(
-              `Gemini is recording decision: ${decision} with reasoning: ${reasoning}`,
-            );
             await saveAgentLog("Recording decision", "completed", {
               decision,
               reasoning,
