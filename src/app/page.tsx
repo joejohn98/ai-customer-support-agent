@@ -12,7 +12,7 @@ interface MessagePart {
 export default function Home() {
   const [input, setInput] = useState("");
 
-  const { messages, sendMessage, status } = useChat();
+  const { messages, sendMessage, error, status } = useChat();
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -78,6 +78,12 @@ export default function Home() {
           {(status === "submitted" || status === "streaming") && (
             <div className="bg-blue-50 text-left rounded-lg px-4 py-2 max-w-xs italic text-gray-400">
               Thinking...
+            </div>
+          )}
+
+          {error && (
+            <div className="bg-red-50 text-left rounded-lg px-4 py-2 max-w-xs italic text-red-400">
+              Error: {error.message}
             </div>
           )}
         </div>

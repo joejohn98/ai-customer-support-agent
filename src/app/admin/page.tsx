@@ -27,7 +27,7 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto p-8">
+    <div className="w-full max-w-5xl mx-auto p-8">
       <h1 className="text-3xl font-bold mb-6">Agent Reasoning Logs</h1>
 
       <div className="bg-gray-900 p-6 rounded-lg font-mono text-sm h-150 overflow-y-auto shadow-xl">

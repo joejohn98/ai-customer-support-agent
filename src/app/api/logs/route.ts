@@ -10,7 +10,6 @@ export async function GET() {
     const agentLogs = JSON.parse(data);
     return NextResponse.json(agentLogs);
   } catch (error) {
-    // If file doesn't exist (e.g. first run on Vercel), return empty array
     if ((error as any).code === 'ENOENT') {
       return NextResponse.json([]);
     }
