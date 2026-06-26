@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import { getLogFilePath } from "@/utils/logger";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const filePath = getLogFilePath();
 

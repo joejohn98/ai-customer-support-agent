@@ -13,18 +13,39 @@ type LogEntry = {
 
 export default function AdminDashboard() {
   const [logs, setLogs] = useState<LogEntry[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchLogs = async () => {
-    const response = await fetch("/api/logs");
-    const data = await response.json();
-    setLogs(data);
+    try {
+      const response = await fetch(`/api/logs`, {
+        cache: 'no-store'
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setLogs(data);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Failed to fetch logs");
+      console.error("Error fetching logs:", error);
+    }
   };
 
   useEffect(() => {
     Promise.resolve().then(() => fetchLogs());
     const interval = setInterval(fetchLogs, 5000);
+
     return () => clearInterval(interval);
   }, []);
+
+  if (error) {
+    return (
+      <div className="min-h-screen w-full flex items-center justify-center">
+        <p className="text-red-500 text-center">{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-5xl mx-auto p-8">
